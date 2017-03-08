@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Cities list</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>State</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for city in cities %}
+            <tr>
+                <td>{{ city.name }}</td>
+                <td>{% if city.state %}{{ city.state.name }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('city_show', { 'id': city.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('city_edit', { 'id': city.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('city_new') }}">Create a new city</a>
+        </li>
+    </ul>
+{% endblock %}

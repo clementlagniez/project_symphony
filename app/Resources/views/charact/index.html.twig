@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Characts list</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Known as</th>
+                <th>Lastname</th>
+                <th>Age</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for charact in characts %}
+            <tr>
+                <td>{{ charact.name }}</td>
+                <td>{{ charact.knownAs }}</td>
+                <td>{{ charact.lastname }}</td>
+                <td>{{ charact.age }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('charact_show', { 'id': charact.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('charact_edit', { 'id': charact.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('charact_new') }}">Create a new charact</a>
+        </li>
+    </ul>
+{% endblock %}

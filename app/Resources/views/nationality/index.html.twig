@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Nationalities list</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for nationality in nationalities %}
+            <tr>
+                <td>{{ nationality.name }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('nationality_show', { 'id': nationality.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('nationality_edit', { 'id': nationality.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('nationality_new') }}">Create a new nationality</a>
+        </li>
+    </ul>
+{% endblock %}

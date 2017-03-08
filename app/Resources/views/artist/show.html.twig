@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Artist</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Name</th>
+                <td>{{ artist.name }}</td>
+            </tr>
+            <tr>
+                <th>Known as</th>
+                <td>{{ artist.knownAs }}</td>
+            </tr>
+            <tr>
+                <th>Lastname</th>
+                <td>{{ artist.lastname }}</td>
+            </tr>
+            <tr>
+                <th>Birth</th>
+                <td>{% if artist.birth %}{{ artist.birth|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Death</th>
+                <td>{% if artist.death %}{{ artist.death|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>{% if artist.city %}{{ artist.city.name }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Book(s)</th>
+                <td>{% if artist.books %}
+                    <ul>
+                        {% for book in artist.books %}
+                            <li>{{ book.name }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('artist_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('artist_edit', { 'id': artist.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

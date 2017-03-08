@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Subgenre</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Name</th>
+                <td>{{ subgenre.name }}</td>
+            </tr>
+            <tr>
+                <th>Genre</th>
+                <td>{% if subgenre.genre %}{{ subgenre.genre.name }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('subgenre_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('subgenre_edit', { 'id': subgenre.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

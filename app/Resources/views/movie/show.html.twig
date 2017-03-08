@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Movie</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Name</th>
+                <td>{{ movie.name }}</td>
+            </tr>
+            <tr>
+                <th>Released</th>
+                <td>{% if movie.released %}{{ movie.released|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Duration</th>
+                <td>{{ movie.duration }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('movie_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('movie_edit', { 'id': movie.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

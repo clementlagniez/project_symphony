@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Subtypes list</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for subtype in subtypes %}
+            <tr>
+                <td>{{ subtype.name }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('subtype_show', { 'id': subtype.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('subtype_edit', { 'id': subtype.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('subtype_new') }}">Create a new subtype</a>
+        </li>
+    </ul>
+{% endblock %}

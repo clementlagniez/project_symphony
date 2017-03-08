@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Bands list</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Formed</th>
+                <th>Albums</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for band in bands %}
+            <tr>
+                <td>{{ band.name }}</td>
+                <td>{{ band.formed }}</td>
+                <td>{% if band.albums %}
+                    <ul>
+                        {% for album in band.albums %}
+                        
+                            <li>{{ album.name }}</li>
+
+                        {% endfor %}
+                    </ul>
+                {% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('band_show', { 'id': band.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('band_edit', { 'id': band.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('band_new') }}">Create a new band</a>
+        </li>
+    </ul>
+{% endblock %}
