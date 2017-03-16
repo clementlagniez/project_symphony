@@ -42,6 +42,10 @@ class Movie
      */
     private $duration;
 
+    public function __toString(){
+
+        return $this->name;
+    }
 
     /**
      * Get id

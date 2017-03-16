@@ -57,7 +57,7 @@ class Artist
     private $death;
 
     /**
-     * @ORM\ManyToOne(targetEntity="City")
+     * @ORM\ManyToOne(targetEntity="City", inversedBy="artists")
      */
     private $city;
 

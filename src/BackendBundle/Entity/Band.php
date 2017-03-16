@@ -36,7 +36,7 @@ class Band
     private $formed;
 
     /**
-     * @ORM\ManyToOne(targetEntity="City")
+     * @ORM\ManyToOne(targetEntity="City", inversedBy="bands")
      */
     private $city;
 

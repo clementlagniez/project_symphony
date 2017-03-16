@@ -13,6 +13,10 @@
                 <th>State</th>
                 <td>{% if city.state %}{{ city.state.name }}{% endif %}</td>
             </tr>
+            <tr>
+                <th>Country</th>
+                <td>{% if city.state.country %}{{ city.state.country.name }}{% endif %}</td>
+            </tr>
         </tbody>
     </table>
 

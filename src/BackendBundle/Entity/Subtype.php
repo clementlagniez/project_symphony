@@ -28,6 +28,15 @@ class Subtype
      */
     private $name;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Type")
+     */
+    private $type;
+
+    public function __toString(){
+
+        return $this->name;
+    }
 
     /**
      * Get id
@@ -61,5 +70,29 @@ class Subtype
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set type
+     *
+     * @param \BackendBundle\Entity\Type $type
+     *
+     * @return Subtype
+     */
+    public function setType(\BackendBundle\Entity\Type $type = null)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return \BackendBundle\Entity\Type
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 }

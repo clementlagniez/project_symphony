@@ -39,7 +39,7 @@ class AlbumController extends Controller
      */
     public function newAction(Request $request)
     {
-        $album = new Album();
+        $album = new Album();die('polop');
         $form = $this->createForm('BackendBundle\Form\AlbumType', $album);
         $form->handleRequest($request);
 

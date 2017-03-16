@@ -32,6 +32,14 @@
                     </ul>
                 {% endif %}</td>
                 <td>
+                <td>{% if artist.bands %}
+                    <ul>
+                        {% for band in artist.bands %}
+                            <li>{{ band.name }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}</td>
+                <td>
                     <ul>
                         <li>
                             <a href="{{ path('artist_show', { 'id': artist.id }) }}">show</a>

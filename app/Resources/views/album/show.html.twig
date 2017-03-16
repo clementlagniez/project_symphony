@@ -17,6 +17,16 @@
                 <th>Released</th>
                 <td>{% if album.released %}{{ album.released|date('Y-m-d') }}{% endif %}</td>
             </tr>
+            <tr>
+                <th>Song(s)</th>
+                <td>{% if album.songs %}
+                    <ul>
+                        {% for song in album.songs %}
+                            <li>{{ song.name }} ({{ song.duration }})</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}</td>
+            </tr>
         </tbody>
     </table>
 
