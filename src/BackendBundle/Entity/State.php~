@@ -32,12 +32,11 @@ class State
      * @ORM\OneToMany(targetEntity="City", mappedBy="state")
      */
     private $cities;
+
     /**
      * @ORM\ManyToOne(targetEntity="Country")
      */
     private $country;
-
-
 
     public function __toString(){
         return $this->name;

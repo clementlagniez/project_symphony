@@ -9,6 +9,7 @@
                 <th>Name</th>
                 <th>Formed</th>
                 <th>Albums</th>
+                <th>Artist(s)</th>
             </tr>
         </thead>
         <tbody>
@@ -21,6 +22,15 @@
                         {% for album in band.albums %}
                         
                             <li>{{ album.name }}</li>
+
+                        {% endfor %}
+                    </ul>
+                {% endif %}</td>
+                <td>{% if band.artists %}
+                    <ul>
+                        {% for artist in band.artists %}
+                        
+                            <li>{{ artist.name }} {% if artist.knownas %}"{{ artist.knownas }}"{% endif %} {{ artist.lastname }}</li>
 
                         {% endfor %}
                     </ul>

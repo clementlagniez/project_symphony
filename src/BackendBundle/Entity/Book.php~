@@ -43,7 +43,7 @@ class Book
     private $released;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Artist")
+     * @ORM\ManyToOne(targetEntity="Artist", inversedBy="books")
      */
     private $artist;
 

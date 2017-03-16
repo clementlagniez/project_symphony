@@ -13,6 +13,26 @@
                 <th>Duration</th>
                 <td>{{ song.duration }}</td>
             </tr>
+            <tr>
+                <th>Album(s)</th>
+                <td>{% if song.albums %}
+                    <ul>
+                        {% for album in song.albums %}
+                            <li>{{ album.name }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}</td>
+            </tr>
+            <tr>
+                <th>Track</th>
+                <td>{% if song.tracks %}
+                    <ul>
+                        {% for track in song.tracks %}
+                            <li>{{ track.number }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}</td>
+            </tr>
         </tbody>
     </table>
 

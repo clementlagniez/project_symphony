@@ -43,10 +43,25 @@ class Album
     private $released;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Band")
+     * @ORM\ManyToOne(targetEntity="Band", inversedBy="albums")
      */
     private $band;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Track", inversedBy="albums")
+     */
+    private $tracks;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Song", mappedBy="albums")
+     */
+    private $songs;
+
+
+    public function __toString(){
+
+        return $this->name;
+    }
 
     /**
      * Get id
@@ -176,5 +191,81 @@ class Album
     public function getBand()
     {
         return $this->band;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->tracks = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->songs = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add track
+     *
+     * @param \BackendBundle\Entity\Track $track
+     *
+     * @return Album
+     */
+    public function addTrack(\BackendBundle\Entity\Track $track)
+    {
+        $this->tracks[] = $track;
+
+        return $this;
+    }
+
+    /**
+     * Remove track
+     *
+     * @param \BackendBundle\Entity\Track $track
+     */
+    public function removeTrack(\BackendBundle\Entity\Track $track)
+    {
+        $this->tracks->removeElement($track);
+    }
+
+    /**
+     * Get tracks
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTracks()
+    {
+        return $this->tracks;
+    }
+
+    /**
+     * Add song
+     *
+     * @param \BackendBundle\Entity\Song $song
+     *
+     * @return Album
+     */
+    public function addSong(\BackendBundle\Entity\Song $song)
+    {
+        $this->songs[] = $song;
+
+        return $this;
+    }
+
+    /**
+     * Remove song
+     *
+     * @param \BackendBundle\Entity\Song $song
+     */
+    public function removeSong(\BackendBundle\Entity\Song $song)
+    {
+        $this->songs->removeElement($song);
+    }
+
+    /**
+     * Get songs
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSongs()
+    {
+        return $this->songs;
     }
 }

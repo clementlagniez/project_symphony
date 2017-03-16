@@ -39,6 +39,16 @@
                     </ul>
                 {% endif %}</td>
             </tr>
+            <tr>
+                <th>Band(s)</th>
+                <td>{% if artist.bands %}
+                    <ul>
+                        {% for band in artist.bands %}
+                            <li>{{ band.name }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}</td>
+            </tr>
         </tbody>
     </table>
 

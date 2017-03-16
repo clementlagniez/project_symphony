@@ -8,7 +8,8 @@
             <tr>
                 <th>Name</th>
                 <th>Duration</th>
-                <th>Actions</th>
+                <th>Album(s)</th>
+                <th>Track(s)</th>
             </tr>
         </thead>
         <tbody>
@@ -16,6 +17,20 @@
             <tr>
                 <td>{{ song.name }}</td>
                 <td>{{ song.duration }}</td>
+                <td>{% if song.albums %}
+                    <ul>
+                        {% for album in song.albums %}
+                            <li>{{ album.name }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}</td>
+                <td>{% if song.tracks %}
+                    <ul>
+                        {% for track in song.tracks %}
+                            <li>{{ track.number }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}</td>
                 <td>
                     <ul>
                         <li>

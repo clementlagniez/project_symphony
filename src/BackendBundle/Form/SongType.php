@@ -6,6 +6,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+
 class SongType extends AbstractType
 {
     /**
@@ -13,7 +15,24 @@ class SongType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('duration')        ;
+        $builder
+            ->add('name')
+            ->add('duration')
+
+            /* Define the many-to-many relationship */
+            ->add('albums', EntityType::class, array(
+                "class"=>"BackendBundle:Album",
+                "expanded"=>true,
+                "multiple"=>true
+            ))
+
+            ->add('tracks', EntityType::class, array(
+                "class"=>"BackendBundle:Track",
+                "expanded"=>true,
+                "multiple"=>true
+            ))
+        ;
+
     }
     
     /**
