@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Artists list</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Known as</th>
+                <th>Lastname</th>
+                <th>Birth</th>
+                <th>Death</th>
+                <th>City</th>
+                <th>Book(s)</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for artist in artists %}
+            <tr>
+                <td>{{ artist.name }}</td>
+                <td>{{ artist.knownAs }}</td>
+                <td>{{ artist.lastname }}</td>
+                <td>{% if artist.birth %}{{ artist.birth|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if artist.death %}{{ artist.death|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if artist.city %}{{ artist.city.name }}{% endif %}</td>
+                <td>{% if artist.books %}
+                    <ul>
+                        {% for book in artist.books %}
+                            <li>{{ book.name }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}</td>
+                <td>
+                <td>{% if artist.bands %}
+                    <ul>
+                        {% for band in artist.bands %}
+                            <li>{{ band.name }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('artist_show', { 'id': artist.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('artist_edit', { 'id': artist.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('artist_new') }}">Create a new artist</a>
+        </li>
+    </ul>
+{% endblock %}

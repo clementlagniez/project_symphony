@@ -2,14 +2,24 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Clement{% endblock %}</title>
+        <title>{% block title %}Project{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         <link rel="stylesheet" type="text/css" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/movie.css') }}">
+        <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+
     </head>
     <body>
+        <div>
+
+            <img id="banner" src="{{ asset('images/movie_banner.jpg') }}" />
+
+        </div>
+
         {% block body %}{% endblock %}
-        <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+        
         {% block javascripts %}{% endblock %}
+        
     </body>
 </html>

@@ -13,6 +13,12 @@ security:
         fos_userbundle:
             id: fos_user.user_provider.username
 
+        in_memory:
+            memory:
+                users:
+                    user:  { password: interfor, roles: [ 'ROLE_USER' ] }
+                    admin: { password: ubiadm, roles: [ 'ROLE_ADMIN' ] }
+
     firewalls:
         main:
             pattern: ^/
@@ -30,3 +36,6 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: ^/, role: IS_AUTHENTICATED_ANONYMOUSLY }
+
+
