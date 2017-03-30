@@ -2,24 +2,24 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Project{% endblock %}</title>
+        <title>{% block title %}Minerva | You heard of it, we know it{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         <link rel="stylesheet" type="text/css" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/movie.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/hub.css') }}">
         <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
 
     </head>
     <body>
         <div>
 
-            <img id="banner" src="{{ asset('images/movie_banner.jpg') }}" />
+            <img id="banner" src="{{ asset('images/banner_minerva.jpg') }}" />
 
         </div>
 
         {% block body %}{% endblock %}
         
         {% block javascripts %}{% endblock %}
-        
+
     </body>
 </html>

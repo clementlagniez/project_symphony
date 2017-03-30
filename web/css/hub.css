@@ -8,12 +8,10 @@ body {
 
 #banner {
 
-    display: block;
-    position: relative;
+    display: flex;
+    justify-content: center;
     top: 5px;
-    left: 5px;
-    right: 5px;
-    width: 50%;
+    width: 90%;
     height: 50%;
     border-radius: 1%;
     /* you need to match the shadow color to your background or image border for the desired effect*/
