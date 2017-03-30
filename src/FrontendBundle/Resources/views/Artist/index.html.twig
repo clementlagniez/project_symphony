@@ -1,17 +1,26 @@
 {% extends "::base.html.twig" %}
 
 {% block body %}
-<h1>Artist(s)</h1>
+	<center>
+		<h1>Artist(s) currently added</h1>
 
-<table class="table-bordered">
-{% for artist in artists %}
-	<tr>
-		<td>{{ artist.name }}</td>
-		<td>{{ artist.birth|date("m/d/Y") }}</td>
-
-
-	</tr>
-{% endfor %}
-</table>
-
+		<table class="table">
+	        <thead>
+	            <tr>
+	                <th>Name</th>
+	                <th>Known as</th>
+	                <th>Lastname</th>
+	            </tr>
+	        </thead>
+	        <tbody>
+				{% for artist in artists %}
+					<tr>
+						<td>{{ artist.name }}</td>
+						<td>{% if artist.knownAs %}"{{ artist.knownAs }}"{% endif %}</td>
+						<td>{{ artist.lastname }}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</center>
 {% endblock %}

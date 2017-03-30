@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Band(s) currently added</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Formed</th>
+                <th>Albums</th>
+                <th>Artist(s)</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for band in bands %}
+            <tr>
+                <td>{{ band.name }}</td>
+                <td>{{ band.formed }}</td>
+                <td>{% if band.albums %}
+                    <ul>
+                        {% for album in band.albums %}
+                        
+                            <li>{{ album.name }}</li>
+
+                        {% endfor %}
+                    </ul>
+                {% endif %}</td>
+                <td>{% if band.artists %}
+                    <ul>
+                        {% for artist in band.artists %}
+                        
+                            <li>{{ artist.name }} {% if artist.knownas %}"{{ artist.knownas }}"{% endif %} {{ artist.lastname }}</li>
+
+                        {% endfor %}
+                    </ul>
+                {% endif %}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
