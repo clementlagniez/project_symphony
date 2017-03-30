@@ -1,0 +1,22 @@
+body {
+              
+    background: url("../images/bg_waves.png");
+    background-position: center center; 
+    background-attachment: fixed;  
+
+}
+
+#banner {
+
+    display: block;
+    position: relative;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    width: 50%;
+    height: 50%;
+    border-radius: 1%;
+    /* you need to match the shadow color to your background or image border for the desired effect*/
+    box-shadow: 0 0 8px 8px black inset;
+
+}
