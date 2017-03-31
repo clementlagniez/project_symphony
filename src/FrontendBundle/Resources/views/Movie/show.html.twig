@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<center>
+
+    <h1>Movie</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Name</th>
+                <td>{{ movie.name }}</td>
+            </tr>
+            <tr>
+                <th>Released</th>
+                <td>{% if movie.released %}{{ movie.released|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Duration</th>
+                <td>{{ movie.duration }}</td>
+            </tr>
+            <tr>
+                <th>Synopsis</th>
+                <td>IPSUM MES COUILLES EN SKI ! DFeavbydc rvscs dtjfvn mufnorsv suvbcskh sruivscukhbv hsvkubrscbk. </br>
+                Dtorigu linsovnij o, cspeciqm fytidn klhkho.
+            </tr>
+        </tbody>
+    </table>
+
+
+
+    <ul>
+        <li>
+            <a href="{{ path('movie_list') }}">Back to the list</a>
+        </li>
+
+</center>
+{% endblock %}

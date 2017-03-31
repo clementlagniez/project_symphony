@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<center>
+
+    <h1>Character(s) currently added</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Known as</th>
+                <th>Lastname</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for charact in characts %}
+            <tr>
+                <td>{{ charact.name }}</td>
+                <td>{% if charact.knownAs %}{{ charact.knownAs }}{% endif %}</td>
+                <td>{{ charact.age }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</center>
+{% endblock %}

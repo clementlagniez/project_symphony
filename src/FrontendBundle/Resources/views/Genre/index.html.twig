@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<center>
+
+    <h1>Genres list</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for genre in genres %}
+            <tr>
+                <td>{{ genre.name }}</td>
+                <td>{% if genre.subgenres %}
+                    <ul>
+                        {% for subgenre in genre.subgenres %}
+                            <li>{{ subgenre.name }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</center>
+{% endblock %}
