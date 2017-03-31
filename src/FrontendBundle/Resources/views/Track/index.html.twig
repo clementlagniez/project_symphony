@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<center>
+
+    <h1>Tracks list</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Number</th>
+                <th>Song(s)</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for track in tracks %}
+            <tr>
+                <td>{{ track.number }}</td>
+                <td>{% if track.songs %}
+                    <ul>
+                        {% for song in track.songs %}
+                            <li>{{ song.name }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}</td>
+                <td>
+                    <ul>
+                        <a href="{{ path('track_detail', { 'id': track.id }) }}">More informations</a>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</center>
+{% endblock %}

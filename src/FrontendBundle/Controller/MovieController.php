@@ -2,6 +2,7 @@
 
 namespace FrontendBundle\Controller;
 
+use BackendBundle\Entity\Movie;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
@@ -27,15 +28,13 @@ class MovieController extends Controller
     }
 
     /**
-     * @Route("/detail", name="movie_detail")
+     * @Route("/detail/{id}", name="movie_detail")
      */
     public function showAction(Movie $movie)
     {
-        $deleteForm = $this->createDeleteForm($movie);
 
-        return $this->render('movie/show.html.twig', array(
+        return $this->render('FrontendBundle:Movie:show.html.twig', array(
             'movie' => $movie,
-            'delete_form' => $deleteForm->createView(),
         ));
     }
 

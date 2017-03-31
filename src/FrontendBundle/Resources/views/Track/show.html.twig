@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<center>
+
+    <h1>Track</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Number</th>
+                <td>{{ track.number }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <a href="{{ path('track_list') }}">Back to the list</a>
+    </ul>
+
+</center>
+{% endblock %}

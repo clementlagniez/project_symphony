@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<center>
+
+    <h1>Subtypes list</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for subtype in subtypes %}
+            <tr>
+                <td>{{ subtype.name }}</td>
+            </tr>
+            <tr>
+                <td>{% if subtype.type %}{{ subtype.type.name }}{% endif %}</td>
+            </tr>
+                <td>
+                    <ul>
+                        <a href="{{ path('subtype_detail', { 'id': subtype.id }) }}">More informations</a>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</center>
+{% endblock %}

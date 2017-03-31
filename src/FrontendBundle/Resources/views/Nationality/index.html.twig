@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<center>
+
+    <h1>Nationalities list</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for nationality in nationalities %}
+            <tr>
+                <td>{{ nationality.name }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('nationality_detail', { 'id': nationality.id }) }}">More informations</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</center>
+{% endblock %}

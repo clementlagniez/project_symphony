@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<center>
+
+    <h1>Subgenre</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Name</th>
+                <td>{{ subgenre.name }}</td>
+            </tr>
+            <tr>
+                <th>Genre</th>
+                <td>{% if subgenre.genre %}{{ subgenre.genre.name }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <a href="{{ path('subgenre_list') }}">Back to the list</a>
+    </ul>
+
+</center>
+{% endblock %}
