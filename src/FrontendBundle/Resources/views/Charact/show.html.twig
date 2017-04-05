@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <center>
+
+        <h1>Charact</h1>
+
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>Name</th>
+                    <td>{{ charact.name }}</td>
+                </tr>
+                <tr>
+                    <th>Known as</th>
+                    <td>{{ charact.knownAs }}</td>
+                </tr>
+                <tr>
+                    <th>Lastname</th>
+                    <td>{{ charact.lastname }}</td>
+                </tr>
+                <tr>
+                    <th>Age</th>
+                    <td>{{ charact.age }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <ul>
+            <li>
+                <a href="{{ path('charact_list') }}">Back to the list</a>
+            </li>
+        </ul>
+
+    </center>
+{% endblock %}

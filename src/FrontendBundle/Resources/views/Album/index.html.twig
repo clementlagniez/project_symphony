@@ -20,6 +20,13 @@
                 <td>{% if album.band %}{{ album.band.name }}{% endif %}</td>
                 <td>{% if album.released %}{{ album.released|date('Y-m-d') }}{% endif %}</td>
                 <td>{{ album.duration }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('album_detail', { 'id': album.id }) }}">More informations</a>
+                        </li>
+                    </ul>
+                </td>
             </tr>
         {% endfor %}
         </tbody>

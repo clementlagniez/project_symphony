@@ -9,6 +9,7 @@
         <thead>
             <tr>
                 <th>Name</th>
+                <th>Subgenre(s)</th>
             </tr>
         </thead>
         <tbody>
@@ -22,6 +23,13 @@
                         {% endfor %}
                     </ul>
                 {% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('genre_detail', { 'id': genre.id }) }}">More informations</a>
+                        </li>
+                    </ul>
+                </td>
             </tr>
         {% endfor %}
         </tbody>

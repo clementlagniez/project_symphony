@@ -2,6 +2,7 @@
 
 namespace FrontendBundle\Controller;
 
+use BackendBundle\Entity\Country;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
@@ -23,6 +24,17 @@ class CountryController extends Controller
         return $this->render('FrontendBundle:Country:index.html.twig', array(
             "countries"=>$countries
         ));
-    }	
+    }
+
+    /**
+     * @Route("/detail/{id}", name="country_detail")
+     */
+    public function showAction(Country $country)
+    {
+
+        return $this->render('FrontendBundle:Country:show.html.twig', array(
+            'country' => $country,
+        ));
+    }
 
 }

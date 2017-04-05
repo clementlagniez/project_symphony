@@ -25,6 +25,13 @@
                         {% endfor %}
                     </ul>
                 {% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('country_detail', { 'id': country.id }) }}">More informations</a>
+                        </li>
+                    </ul>
+                </td>
             </tr>
         {% endfor %}
         </tbody>

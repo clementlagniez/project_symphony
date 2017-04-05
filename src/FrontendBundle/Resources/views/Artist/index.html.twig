@@ -18,6 +18,13 @@
 						<td>{{ artist.name }}</td>
 						<td>{% if artist.knownAs %}"{{ artist.knownAs }}"{% endif %}</td>
 						<td>{{ artist.lastname }}</td>
+						<td>
+		                    <ul>
+		                        <li>
+		                            <a href="{{ path('artist_detail', { 'id': artist.id }) }}">More informations</a>
+		                        </li>
+		                    </ul>
+                		</td>
 					</tr>
 				{% endfor %}
 			</tbody>

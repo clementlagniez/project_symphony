@@ -19,6 +19,13 @@
                 <td>{{ charact.name }}</td>
                 <td>{% if charact.knownAs %}{{ charact.knownAs }}{% endif %}</td>
                 <td>{{ charact.age }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('charact_detail', { 'id': charact.id }) }}">More informations</a>
+                        </li>
+                    </ul>
+                </td>
             </tr>
         {% endfor %}
         </tbody>

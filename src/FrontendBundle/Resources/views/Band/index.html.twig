@@ -38,6 +38,13 @@
                         {% endfor %}
                     </ul>
                 {% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('band_detail', { 'id': band.id }) }}">More informations</a>
+                        </li>
+                    </ul>
+                </td>
             </tr>
         {% endfor %}
         </tbody>

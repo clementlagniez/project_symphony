@@ -21,6 +21,13 @@
                 <td>{% if book.artist %}{{ book.artist.name }}{% endif %}</td>
                 <td>{{ book.nopages }}</td>
                 <td>{% if book.released %}{{ book.released|date('Y-m-d') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('book_detail', { 'id': book.id }) }}">More informations</a>
+                        </li>
+                    </ul>
+                </td>
             </tr>
         {% endfor %}
         </tbody>

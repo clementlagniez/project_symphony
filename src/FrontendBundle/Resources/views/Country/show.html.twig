@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <center>
+
+        <h1>Country</h1>
+
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>Name</th>
+                    <td>{{ country.name }}</td>
+                </tr>
+                <tr>
+                    <th>State(s)</th>
+                    <td>{% if country.states %}
+                        <ul>
+                            {% for state in country.states %}
+                            
+                                <li>{{ state.name }}</li>
+
+                            {% endfor %}
+                        </ul>
+                    {% endif %}</td>
+            </tbody>
+        </table>
+
+        <ul>
+            <li>
+                <a href="{{ path('country_index') }}">Back to the list</a>
+            </li>
+        </ul>
+
+    </center>
+{% endblock %}

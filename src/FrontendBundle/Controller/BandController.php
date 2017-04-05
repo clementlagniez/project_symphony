@@ -2,6 +2,7 @@
 
 namespace FrontendBundle\Controller;
 
+use BackendBundle\Entity\Band;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
@@ -22,6 +23,17 @@ class BandController extends Controller
 
         return $this->render('FrontendBundle:Band:index.html.twig', array(
             "bands"=>$bands
+        ));
+    }
+
+    /**
+     * @Route("/detail/{id}", name="band_detail")
+     */
+    public function showAction(Band $band)
+    {
+
+        return $this->render('FrontendBundle:Band:show.html.twig', array(
+            'band' => $band,
         ));
     }
 

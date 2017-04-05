@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <center>
+
+        <h1>City</h1>
+
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>Name</th>
+                    <td>{{ city.name }}</td>
+                </tr>
+                <tr>
+                    <th>State</th>
+                    <td>{% if city.state %}{{ city.state.name }}{% endif %}</td>
+                </tr>
+                <tr>
+                    <th>Country</th>
+                    <td>{% if city.state.country %}{{ city.state.country.name }}{% endif %}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <ul>
+            <li>
+                <a href="{{ path('city_list') }}">Back to the list</a>
+            </li>
+        </ul>
+
+    </center>
+{% endblock %}
