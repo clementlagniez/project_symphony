@@ -13,8 +13,12 @@ class HubController extends Controller
  */
 	public function HubAction()
     {
+    	$em=$this->getDoctrine()->getManager();
 
+    	$movies=$em->getRepository('BackendBundle:Movie')->getRandom(3);
         return $this->render('FrontendBundle:Hub:index.html.twig');
 
     }
+
+
 }

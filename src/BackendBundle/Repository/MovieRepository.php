@@ -10,4 +10,17 @@ namespace BackendBundle\Repository;
  */
 class MovieRepository extends \Doctrine\ORM\EntityRepository
 {
+
+	/* Fonction permettant de sortir 3 valeurs aléatoirement */
+	public function getRandom($nb){
+
+		$qb=$this->createQueryBuilder('m');
+		
+		$results=$qb->getQuery()->getResult();
+		shuffle($results);
+
+		return [$results[0], $results[1], $results[2]];
+
+	}
+
 }
